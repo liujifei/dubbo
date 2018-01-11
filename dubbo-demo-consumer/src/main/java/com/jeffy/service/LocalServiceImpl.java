@@ -12,7 +12,7 @@ public class LocalServiceImpl implements DemoService {
 
     @Override
     public String getMongo() {
-        System.out.println("服务降级");
+        System.out.println("服务降级了");
         return "new Mongo";
     }
 
