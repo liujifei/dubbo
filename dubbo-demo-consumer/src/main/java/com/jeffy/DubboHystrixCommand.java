@@ -6,6 +6,7 @@ import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.rpc.Invocation;
 import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.Result;
+import com.jeffy.service.LocalServiceImpl;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
@@ -51,7 +52,8 @@ public class DubboHystrixCommand extends HystrixCommand {
     @Override
     protected String getFallback() {
         System.out.println("isCircuitBreakerOpen:" + this.isCircuitBreakerOpen());
-        System.out.println("服务降级");
+        LocalServiceImpl localService = new LocalServiceImpl();
+        localService.getMongo();
         return "服务降级";
     }
 
