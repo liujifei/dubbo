@@ -38,7 +38,7 @@ public class Consumer {
                 // sayHello("world"); // call remote method
                 System.out.println(hello); // get result
             } catch (Throwable throwable) {
-                System.out.println("SERVICE ERROR");
+                System.out.println(throwable.getMessage());
             }
         }
 
